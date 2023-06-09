@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+
+    kaileymsnay.categorizetopics.listener:
+        class: kaileymsnay\categorizetopics\event\main_listener
+        tags:
+            - { name: event.listener }

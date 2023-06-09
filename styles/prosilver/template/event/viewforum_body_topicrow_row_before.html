@@ -1,0 +1,10 @@
+{% if not JXTOOLSJS %}
+	{% INCLUDEJS '@kaileymsnay_categorizetopics/jxtools.js' %}
+	{% DEFINE JXTOOLSJS = true %}
+{% endif %}
+
+{% if topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH %}
+	<li id="list_inner_hidden_container_{{ topicrow.S_TOPIC_TYPE }}" jxdom-closest="div.inner" jxdom-find="dl.row-item > dt :first" jxdom-action="replace">
+		<div class="list-inner">{% if S_DISPLAY_ACTIVE %}{{ lang('ACTIVE_TOPICS') }}{% elseif topicrow.S_POST_GLOBAL %}{{ lang('GLOBAL_ANNOUNCEMENTS') }}{% elseif topicrow.S_POST_ANNOUNCE %}{{ lang('ANNOUNCEMENTS') }}{% elseif topicrow.S_POST_STICKY %}{{ lang('STICKY_TOPICS') }}{% else %}{{ lang('TOPICS') }}{% endif %}
+	</li>
+{% endif %}
